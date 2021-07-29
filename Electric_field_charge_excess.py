@@ -148,7 +148,9 @@ for s in afstanden:
 
     e_0 = 55.26349406 # e2⋅GeV−1⋅fm−1
     #e_0 = 8.8541878128 * 10**(-12) # F⋅m−1
-    schaling = 1/(4*np.pi*e_0)
+    q = 1.6 * 10**(-19)
+    #c = 8 * 10**(8)
+    schaling = (q)/(4*np.pi*e_0)
     E_0 = schaling * E_0
     
     
@@ -167,7 +169,7 @@ plt.legend(lines0, afstanden)
 #plt.plot(x,l)
 #plt.yscale("log")
 #plt.xscale("log")
-plt.ylim([-0.3e7,0.7e7])
+plt.ylim([-3e-13,7e-13])
 plt.xlim([20,140])
 #plt.xlim([0,50000])
 plt.title("E_0 against time")
@@ -294,7 +296,8 @@ for s in afstanden:
     
     e_0 = 55.26349406 # e2⋅GeV−1⋅fm−1
     #e_0 = 8.8541878128 * 10**(-12) # F⋅m−1
-    schaling = 1/(4*np.pi*e_0)
+    q = 1.6 * 10**(-19)
+    schaling = q/(4*np.pi*e_0)
     E_0 = schaling * E_0
 
 
@@ -310,7 +313,7 @@ plt.legend(lines0, afstanden)
 #plt.plot(x,l)
 #plt.yscale("log")
 #plt.xscale("log")
-plt.ylim([-0.3e7,0.7e7])
+plt.ylim([-3e-13,7e-13])
 plt.xlim([20,140])
 #plt.xlim([0,50000])
 plt.title("E_0 against time numerical")
