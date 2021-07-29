@@ -21,7 +21,7 @@ z = np.linspace(100000,1,10000)
 
 
 
-hoek = range(80,90,2)
+hoek = range(80,90,2) #[62.98, 71.61, 79.49, 84.95, 87.08]
 afstanden = range(100, 2200, 400)
 lines0 = []
 lines1 = []
@@ -38,7 +38,7 @@ for s in afstanden:
     
     h = 1 # m --> hoogte pannenkoek
     
-    #s = 1300
+    #s = 1000
     d = s/(np.cos(theta))
     #s = d * np.cos(theta)
     
@@ -145,12 +145,14 @@ for s in afstanden:
     
     e_0 = 55.26349406 # e2⋅GeV−1⋅fm−1
     #e_0 = 8.8541878128 * 10**(-12) # F⋅m−1
-    schaling = 1/(4*np.pi*e_0)
+    q = 1.6 * 10**(-19)
+    #c = 8 * 10**(8)
+    schaling = q/(4*np.pi*e_0)
     E_x = schaling * E_x
 
 
     
-    lines0.append(plt.plot(cti/0.3,E_x)[0])
+    lines0.append(plt.plot(a,E_x)[0])
     #lines0.append(plt.plot(a,aD)[0])
     #lines0.append(plt.plot(a,atx)[0])
 
@@ -160,11 +162,12 @@ plt.legend(lines0, afstanden)
 #plt.plot(x,l)
 #plt.yscale("log")
 #plt.xscale("log")
-plt.ylim([-2e5,3e5])
-#plt.xlim([0,50000])
-plt.xlim([20,140])
-plt.title("E_x against time")
-plt.xlabel("t(ns)")
+plt.ylim([-2e-14,3e-14])
+plt.xlim([0,50000])
+#plt.xlim([20,140])
+#plt.title("E_x against time")
+plt.title("E_x against height analytical, zenith = 80")
+plt.xlabel("z(m)")
 plt.ylabel("E_x")
 plt.show()
 
@@ -295,7 +298,9 @@ for s in afstanden:
     
     e_0 = 55.26349406 # e2⋅GeV−1⋅fm−1
     #e_0 = 8.8541878128 * 10**(-12) # F⋅m−1
-    schaling = 1/(4*np.pi*e_0)
+    q = 1.6 * 10**(-19)
+    #c = 8 * 10**(8)
+    schaling = q/(4*np.pi*e_0)
     E_x = schaling * E_x
     
 
@@ -310,10 +315,10 @@ plt.legend(lines0, afstanden)
 #plt.plot(x,l)
 #plt.yscale("log")
 #plt.xscale("log")
-plt.ylim([-2e5,3e5])
+plt.ylim([-2e-14,3e-14])
 #plt.xlim([0,50000])
 plt.xlim([20,140])
-plt.title("E_x against height numerical")
+plt.title("E_x against height numerical, zenith = 80")
 plt.xlabel("z(m)")
 plt.ylabel("E_x")
 plt.show()

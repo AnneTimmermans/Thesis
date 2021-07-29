@@ -10,8 +10,12 @@ import  math   as math
 import cmath  as  cmath
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 from scipy.optimize import curve_fit
 
+SMALL_SIZE = 8
+MEDIUM_SIZE = 14
+BIGGER_SIZE = 16
 
 #s = 100
 #d = 100
@@ -19,7 +23,7 @@ z = np.linspace(100000,1,10000)
 
 
 
-hoek = range(0,90,15)
+hoek = range(5,90,15)
 afstanden = range(100, 1000, 200)
 lines0 = []
 lines1 = []
@@ -123,10 +127,11 @@ plt.figure(dpi=100)#Gepasseerde massa
 for s in afstanden:
     
     #theta = t * (np.pi/180)
-    theta = 80 * (np.pi/180)
+    theta = 85 * (np.pi/180)
     
     h = 1 # m --> hoogte pannenkoek
     
+    #s = 200
     d = s/(np.cos(theta))
     #s = d * np.cos(theta)
     
@@ -199,15 +204,16 @@ for s in afstanden:
 
 
 
-plt.legend(lines1, afstanden)
+#plt.legend(lines1, afstanden)
 #plt.plot(x,l)
 #plt.yscale("log")
 #plt.xscale("log")
 #plt.ylim([0,1e61])
 plt.xlim([0,50000])
-plt.title("N against z")
+plt.title("N against z, zenith = 85")
 plt.xlabel("z(m)")
 plt.ylabel("N")
+plt.rc('font', size=MEDIUM_SIZE)          # controls default text sizes
 plt.show()
 
 plt.figure(dpi=100)#Gepasseerde massa
